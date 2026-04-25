@@ -15,6 +15,11 @@ public class Docente {
         this.especialidad = especialidad;
     }
 
+    public Docente(String nombre, String especialidad) {
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+    }
+
     public int getId() {
         return id;
     }
@@ -37,5 +42,14 @@ public class Docente {
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Docente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", especialidad='" + especialidad + '\'' +
+                '}';
     }
 }
