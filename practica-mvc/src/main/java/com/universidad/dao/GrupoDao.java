@@ -13,16 +13,15 @@ public class GrupoDao {
 
     // GUARDAR
     public void guardar(Grupo grupo) {
-        String sql = "INSERT INTO grupo (id, id_materia, id_docente, aula, horario) VALUES (?, ?, ?, ?, ?)";
+        final String sql = "INSERT INTO public.grupo (id_materia, id_docente, aula, horario) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = ConexionPostgresDatabase.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, grupo.getId());
-            ps.setInt(2, grupo.getIdMateria());
-            ps.setInt(3, grupo.getIdDocente());
-            ps.setString(4, grupo.getAula());
-            ps.setString(5, grupo.getHorario());
+            ps.setInt(1, grupo.getIdMateria());
+            ps.setInt(2, grupo.getIdDocente());
+            ps.setString(3, grupo.getAula());
+            ps.setString(4, grupo.getHorario());
 
             ps.executeUpdate();
 

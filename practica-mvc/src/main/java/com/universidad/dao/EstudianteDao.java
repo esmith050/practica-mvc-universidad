@@ -12,15 +12,13 @@ import java.util.List;
 public class EstudianteDao {
 
     public void guardar(Estudiante estudiante) {
-        String sql = "INSERT INTO estudiante (id, nombre, apellido, email) VALUES (?, ?, ?, ?)";
-
+        String sql = "INSERT INTO public.estudiante (nombre, apellido, email) VALUES (?, ?, ?)";
         try (Connection conn = ConexionPostgresDatabase.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, estudiante.getId());
-            ps.setString(2, estudiante.getNombre());
-            ps.setString(3, estudiante.getApellido());
-            ps.setString(4, estudiante.getEmail());
+            ps.setString(1, estudiante.getNombre());
+            ps.setString(2, estudiante.getApellido());
+            ps.setString(3, estudiante.getEmail());
 
             ps.executeUpdate();
 
